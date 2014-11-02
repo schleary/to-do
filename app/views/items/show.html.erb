@@ -1,1 +1,6 @@
-FUCK YOU
+<p>Name: <%= @item.name %>
+<p>Description: <%= @item.description %>
+<p>
+
+<%= link_to "Edit #{@item.name}", items_edit_path(@item), class:"btn btn-default" %>
+<%= link_to "DELETE", items_destroy_path(@item), class: "btn btn-danger", onclick: "myFunction(event)"%>

@@ -8,10 +8,15 @@
 </head>
 <body>
   <div class="container">
+
     <h1>To Do List</h1>
+    <br>
+    <%= link_to "Add New Task", items_new_path %>
+    <%= link_to "View All Tasks", items_path %>
+    <p>
 
     <%= yield %>
-    
+
   </div>
 </body>
 </html>

@@ -1,7 +1,8 @@
-<h1>Tasks</h1>
-<% @items.each do |item| %>
-  <%= item.name %>
-  <%= link_to item.descrition, items_show_path %>
-<% end %>
+<h2>Tasks</h2>
 
-<%= link_to "New Item", items_new_path %>
+<% @items.each do |item| %>
+  <%= link_to "Edit #{item.name}", items_edit_path(item), class:"btn btn-default" %>
+  <%= item.name %> *
+  <%= item.description %>
+  <%= link_to "Mark #{item.name} as Complete", items_destroy_path(item), class: "btn btn-danger", onclick: "myFunction(event)"%><br>
+<% end %>

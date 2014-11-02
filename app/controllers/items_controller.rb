@@ -1,33 +1,34 @@
 class ItemsController < ApplicationController
 
-  def new
-    puts "NEW"
-    @item = Item.new
+  def index
+    @items = Item.all
   end
 
-  def index
-    puts "Well?"
-    @items = Item.all
+  def new
+     @item = Item.new
   end
 
   def create
     @item = Item.new(find_params)
     if @item.save
-      redirect_to @item
+      redirect_to items_path(@item)
     else
       render 'new'
     end
   end
 
   def show
-    puts "Show"
+    @item = Item.find(params[:id])
+  end
+
+  def edit
     @item = Item.find(params[:id])
   end
 
   def update
     @item = Item.find(params[:id])
     if @item.update(find_params)
-      redirect_to @item
+      redirect_to items_show_path(@item)
     else
       render 'edit'
     end
@@ -38,7 +39,6 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to items_path
   end
-
 
   private
 
