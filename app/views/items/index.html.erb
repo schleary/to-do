@@ -1,0 +1,7 @@
+<h1>Tasks</h1>
+<% @items.each do |item| %>
+  <%= item.name %>
+  <%= link_to item.descrition, items_show_path %>
+<% end %>
+
+<%= link_to "New Item", items_new_path %>
